@@ -64,15 +64,15 @@ $xml = simplexml_load_file($xmlPfad);
 
     <table>
         <tr>
-            <th>Tag / Stunde</th>
-            <?php foreach ($stunden as $stunde): ?>
-                <th>Stunde <?= $stunde ?></th>
+            <th>Stunde / Tag</th>
+            <?php foreach ($tage as $tag): ?>
+                <th><?= $tag ?></th>
             <?php endforeach; ?>
         </tr>
-        <?php foreach ($tage as $tag): ?>
+        <?php foreach ($stunden as $stunde): ?>
             <tr>
-                <th><?= $tag ?></th>
-                <?php foreach ($stunden as $stunde): 
+                <th>Stunde <?= $stunde ?></th>
+                <?php foreach ($tage as $tag): 
                     $eintrag = $xml->{strtolower($tag)}->xpath("stunde[@nr=$stunde]")[0];
                 ?>
                     <td onclick="showPopup(event, '<?= htmlspecialchars($eintrag->info) ?>')">
