@@ -23,12 +23,33 @@ $xml = simplexml_load_file($xmlPfad);
         table { border-collapse: collapse; }
         .popup {
             display: none;
-            position: absolute;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background: #f4f4f4;
-            padding: 10px;
+            padding: 20px;
             border: 1px solid #888;
             box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
             z-index: 100;
+            width: 300px;
+            height: 200px;
+            overflow: auto;
+        }
+        .popup .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff5c5c;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            cursor: pointer;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -62,20 +83,26 @@ $xml = simplexml_load_file($xmlPfad);
         <?php endforeach; ?>
     </table>
 
-    <div class="popup" id="popup"></div>
+    <div class="popup" id="popup">
+        <button class="close-btn" onclick="closePopup()">X</button>
+        <div id="popup-content"></div>
+    </div>
 
     <script>
         function showPopup(evt, text) {
             let popup = document.getElementById("popup");
-            popup.innerText = text || "(Keine Info)";
+            let content = document.getElementById("popup-content");
+            content.innerText = text || "(Keine Info)";
             popup.style.display = "block";
-            popup.style.left = evt.pageX + "px";
-            popup.style.top = evt.pageY + "px";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
         }
 
         document.addEventListener("click", function(e) {
-            if (!e.target.closest("td")) {
-                document.getElementById("popup").style.display = "none";
+            if (!e.target.closest("td") && !e.target.closest(".popup")) {
+                closePopup();
             }
         });
     </script>
