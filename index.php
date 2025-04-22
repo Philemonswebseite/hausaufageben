@@ -28,11 +28,7 @@ if (!file_exists($xmlPfad)) {
 <head>
     <meta charset="UTF-8">
     <title>Stundenplan – Woche <?= htmlspecialchars($woche) ?></title>
-    <style>
-        td { border: 1px solid black; padding: 5px; cursor: pointer; }
-        table { border-collapse: collapse; }
-        .popup { display: none; position: absolute; background: #eee; padding: 10px; border: 1px solid #aaa; }
-    </style>
+    <link rel="stylesheet" href="style.css"> <!-- Import der externen CSS-Datei -->
 </head>
 <body>
     <h1>Stundenplan</h1>

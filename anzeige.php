@@ -18,40 +18,7 @@ $xml = simplexml_load_file($xmlPfad);
 <head>
     <meta charset="UTF-8">
     <title>Stundenplan anzeigen – Woche <?= htmlspecialchars($woche) ?></title>
-    <style>
-        td { border: 1px solid black; padding: 5px; cursor: pointer; }
-        table { border-collapse: collapse; }
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #f4f4f4;
-            padding: 20px;
-            border: 1px solid #888;
-            box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-            z-index: 100;
-            width: 300px;
-            height: 200px;
-            overflow: auto;
-        }
-        .popup .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #ff5c5c;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 25px;
-            height: 25px;
-            text-align: center;
-            line-height: 25px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"> <!-- Import der externen CSS-Datei -->
 </head>
 <body>
     <h1>Stundenplan – Woche <?= htmlspecialchars($woche) ?></h1>
