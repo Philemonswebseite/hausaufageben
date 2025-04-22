@@ -1,4 +1,5 @@
 <?php
+
 $heute = new DateTime();
 $woche = isset($_GET['woche']) ? $_GET['woche'] : $heute->format("Y") . "-W" . $heute->format("W");
 $tage = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"];
