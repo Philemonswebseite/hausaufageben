@@ -18,7 +18,7 @@ $xml = simplexml_load_file($xmlPfad);
 <head>
     <meta charset="UTF-8">
     <title>Stundenplan anzeigen – Woche <?= htmlspecialchars($woche) ?></title>
-    <link rel="stylesheet" href="data/style.css"> <!-- Import der externen CSS-Datei -->
+  <!--  <link rel="stylesheet" href="data/style.css"> <!-- Import der externen CSS-Datei -->
 </head>
 <body>
     <h1>Stundenplan – Woche <?= htmlspecialchars($woche) ?></h1>
