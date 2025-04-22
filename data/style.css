@@ -1,8 +1,4 @@
-header {
-    text-align: center;
-    margin-top: 10px;
-}
-
+/* Allgemeine Stile */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -11,13 +7,18 @@ body {
     background-color: #f4f4f4;
 }
 
+header {
+    text-align: center;
+    margin-top: 10px;
+}
+
 main {
     margin: 3.5%;
     padding: 0;
     overflow-x: auto;
-    /* Ermöglicht horizontales Scrollen, wenn nötig */
 }
 
+/* Tabellenstile */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -28,11 +29,9 @@ table {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Berücksichtigt Padding und Border in der Gesamtbreite */
 }
 
-th,
-td {
+th, td {
     border: 1px solid rgb(28, 28, 28);
     padding: 8px;
     text-align: center;
@@ -45,12 +44,10 @@ th {
 
 tr:nth-child(even) {
     background-color: rgba(20, 19, 20, 255);
-    /* Helle Hintergrundfarbe für jede gerade Zeile */
 }
 
 tr:nth-child(odd) {
     background-color: rgba(42, 41, 41, 255);
-    /* Dunklere Hintergrundfarbe für jede ungerade Zeile */
 }
 
 @media (min-width: 600px) {
@@ -59,290 +56,98 @@ tr:nth-child(odd) {
     }
 }
 
-
-/* Schriftgröße auf Handys kleiner machen und 2. und 3. Spalte ausblenden */
-
+/* Mobile Ansicht */
 @media (max-width: 768px) {
-    th,
-    td {
+    th, td {
         font-size: 0.90em;
-        /* Schriftgröße auf 75% der Standardgröße reduzieren */
     }
-    td:nth-child(2),
-    th:nth-child(2),
-    td:nth-child(3),
-    th:nth-child(3) {
+    td:nth-child(2), th:nth-child(2), td:nth-child(3), th:nth-child(3) {
         display: none;
-        /* Verstecke die 2. und 3. Spalte auf Handys */
     }
     table {
         overflow-x: auto;
-        /* Ermöglicht horizontales Scrollen */
         white-space: nowrap;
-        /* Verhindert das Umbruchverhalten in der Tabelle */
         width: auto;
-        /* Verhindert, dass die Tabelle mehr Platz einnimmt als nötig */
         min-width: 100%;
-        /* Stellt sicher, dass die Tabelle mindestens die Breite des Containers hat */
     }
     body {
         background-image: url('data/image2.jpeg');
     }
 }
 
-
-/* Allgemeine Stile für den Link */
-
+/* Buttons */
 .dark-button {
     display: inline-block;
     padding: 10px 22px;
-    /* Abstände innen */
     background-color: #333;
-    /* Dunkler Hintergrund */
     color: #fff;
-    /* Weißer Text */
     font-size: 13px;
-    /* Textgröße */
     font-family: 'Arial', sans-serif;
-    /* Schriftart */
     text-align: center;
-    /* Text zentrieren */
     text-decoration: none;
-    /* Entfernt die Standard-Unterstreichung */
     border-radius: 8px;
-    /* Abgerundete Ecken */
     transition: background-color 0.3s, transform 0.3s;
-    /* Sanfte Übergänge */
 }
-
-
-/* Hover-Effekt */
 
 .dark-button:hover {
     background-color: #444;
-    /* Etwas hellerer Hintergrund beim Hover */
     transform: translateY(-2px);
-    /* Leichte Anhebung des Buttons */
 }
-
-
-/* Fokussierungseffekt (z.B. bei Tastaturinteraktion) */
 
 .dark-button:focus {
     outline: none;
-    /* Entfernt den Standard-Fokusrahmen */
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
-    /* Fokussierung mit leichter Umrandung */
 }
-
-
-/* Aktivierter Zustand (wenn der Button gedrückt wird) */
 
 .dark-button:active {
     background-color: #222;
-    /* Dunklerer Hintergrund, wenn der Button geklickt wird */
     transform: translateY(0);
-    /* Der Button kehrt in seine ursprüngliche Position zurück */
 }
 
-
-/* Media Query für mobile Geräte */
-
-@media (max-width: 600px) {
-    .dark-button {
-        padding: 9px 17px;
-        /* Kleinere Innenabstände */
-        font-size: 14px;
-        /* Kleinere Schriftgröße auf Mobilgeräten */
-    }
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #f4f4f4;
+    padding: 20px;
+    border: 1px solid #888;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    width: 300px;
+    height: 200px;
+    overflow: auto;
 }
 
-
-/* Allgemeine Stile für die Pfeil-Buttons */
-
-.arrow-button {
-    display: inline-block;
-    padding: 10px 18px;
-    /* Kleinere Innenabstände für den Button */
-    background-color: #333;
-    /* Dunkler Hintergrund */
-    color: #fff;
-    /* Weißer Text */
-    font-size: 16px;
-    /* Kleinere Schriftgröße für den Button */
-    text-align: center;
-    /* Text zentrieren */
-    text-decoration: none;
-    /* Entfernt die Standard-Unterstreichung */
-    border-radius: 20px;
-    /* Abgerundete Ecken für einen weicheren Look */
-    transition: background-color 0.3s, transform 0.3s;
-    /* Sanfte Übergänge */
-    margin: 10px;
-    /* Abstand zu anderen Elementen */
-}
-
-
-/* Hover-Effekt */
-
-.arrow-button:hover {
-    background-color: #444;
-    /* Etwas hellerer Hintergrund beim Hover */
-    transform: scale(1.1);
-    /* Leichte Vergrößerung des Buttons */
-}
-
-
-/* Fokussierungseffekt (z.B. bei Tastaturinteraktion) */
-
-.arrow-button:focus {
-    outline: none;
-    /* Entfernt den Standard-Fokusrahmen */
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
-    /* Fokussierung mit leichter Umrandung */
-}
-
-
-/* Aktivierter Zustand (wenn der Button gedrückt wird) */
-
-.arrow-button:active {
-    background-color: #222;
-    /* Dunklerer Hintergrund, wenn der Button geklickt wird */
-    transform: scale(1);
-    /* Button kehrt in seine ursprüngliche Größe zurück */
-}
-
-
-/* Pfeile links und rechts unterscheiden */
-
-.left-arrow {
-    margin-right: 12px;
-    /* Etwas Abstand nach rechts */
-    font-size: 14px;
-    /* Kleine Pfeilgröße */
-}
-
-.right-arrow {
-    margin-left: 12px;
-    /* Etwas Abstand nach links */
-    font-size: 14px;
-    /* Kleine Pfeilgröße */
-}
-
-.leer {
-    color: forestgreen;
-}
-
-
-/* Mobile Ansicht - Buttons kleiner auf Smartphones */
-
-@media (max-width: 600px) {
-    .arrow-button {
-        padding: 6px 12px;
-        /* Noch kleinere Innenabstände */
-        font-size: 14px;
-        /* Noch kleinere Schriftgröße für den Button auf Mobilgeräten */
-    }
-    /* Pfeile auf Mobilgeräten noch kleiner */
-    .left-arrow,
-    .right-arrow {
-        font-size: 12px;
-        /* Noch kleinere Pfeile auf Mobilgeräten */
-    }
-}
-
-
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
-
-.home-button {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    /* Abgerundete Ecken */
-    box-shadow: 0 4px 6px rgba(48, 48, 48, 0.476);
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff5c5c;
+    color: white;
     border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    background-color: rgb(52, 52, 52);
+    font-weight: bold;
 }
 
-.home-button:hover {
-    background-color: rgb(56, 56, 56);
-    /* Etwas hellerer Hintergrund beim Hover */
-    transform: scale(1.1);
-    /* Leichte Vergrößerung des Buttons */
-}
-
-.home-button img {
-    width: 24px;
-    height: 24px;
-}
-
-
-/*
-
-
-
-
-
-
-
-
-
-
-*/
-
+/* Trans-Box */
 .trans-box {
     width: 80%;
-    /* Die Box ist 80% der Breite des Containers */
     height: 80%;
-    /* Die Box ist 80% der Höhe des Containers */
     background-color: rgba(143, 143, 143, 0.5);
-    /* Graue Box mit 50% Transparenz */
     border-radius: 15px;
-    /* Abgerundete Ecken */
     margin-left: 1%;
     margin-right: 1%;
     text-align: left;
     margin-top: 20px;
-    /* Abstand von 10% zum Rand */
     padding: 0.1%;
     padding-left: 1%;
-    /* Abstand zwischen dem Inhalt und dem Rand der Box */
     box-sizing: border-box;
-    /* Sorgt dafür, dass Padding und Border die Gesamtgröße der Box nicht beeinflussen */
 }
