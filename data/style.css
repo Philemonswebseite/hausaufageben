@@ -322,6 +322,8 @@ tr:nth-child(odd) {
     max-width: 400px; /* Maximale Breite für größere Bildschirme */
     text-align: center;
     border-radius: 10px; /* Abgerundete Ecken */
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 /* Popup-Schließen-Button */
