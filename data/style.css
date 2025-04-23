@@ -354,6 +354,7 @@ tr:nth-child(odd) {
     width: 90%; /* Breite für mobile Geräte */
     max-width: 400px; /* Maximale Breite für größere Bildschirme */
     text-align: center;
+    margin: 10%;
 }
 
 /* Popup-Schließen-Button */
