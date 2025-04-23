@@ -340,7 +340,8 @@ tr:nth-child(odd) {
 /* Popup-Stil */
 .popup {
     display: none; /* Standardmäßig ausgeblendet */
-    position: fixed;
+    position: center;
+    /* Fixiert in der Mitte des Bildschirms */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
