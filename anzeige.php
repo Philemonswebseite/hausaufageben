@@ -44,7 +44,7 @@ $xml = simplexml_load_file($xmlPfad);
                 <?php foreach ($tage as $tag): 
                     $eintrag = $xml->{strtolower($tag)}->xpath("stunde[@nr=$stunde]")[0];
                 ?>
-                    <td onclick="showPopup(event, '<?= htmlspecialchars($eintrag->info) ?>')">
+                    <td data-label="<?= $tag ?>" onclick="showPopup(event, '<?= htmlspecialchars($eintrag->info) ?>')">
                         <?= htmlspecialchars($eintrag->fach) ?>
                     </td>
                 <?php endforeach; ?>
