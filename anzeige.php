@@ -58,6 +58,14 @@ $xml = simplexml_load_file($xmlPfad);
     </div>
 
     <script>
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "Escape") {
+                closePopup();
+            }
+        });
+    </script>
+
+    <script>
         function showPopup(evt, text) {
             let popup = document.getElementById("popup");
             let content = document.getElementById("popup-content");
