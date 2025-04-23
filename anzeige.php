@@ -40,7 +40,26 @@ $xml = simplexml_load_file($xmlPfad);
         </tr>
         <?php foreach ($stunden as $stunde): ?>
             <tr>
-                <th>Stunde <?= $stunde ?></th>
+                <th>
+                    <?php 
+                        switch ($stunde) {
+                            case 1:
+                                echo "1/2";
+                                break;
+                            case 2:
+                                echo "3/4";
+                                break;
+                            case 3:
+                                echo "5/6";
+                                break;
+                            case 4:
+                                echo "7/8";
+                                break;
+                            default:
+                                echo "Stunde $stunde";
+                        }
+                    ?>
+                </th>
                 <?php foreach ($tage as $tag): 
                     $eintrag = $xml->{strtolower($tag)}->xpath("stunde[@nr=$stunde]")[0];
                 ?>
