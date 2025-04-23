@@ -31,7 +31,7 @@ $xml = simplexml_load_file($xmlPfad);
         <a href="?woche=<?= $heute->format("Y") . "-W" . $heute->format("W") ?>">Heute</a>
     </form>
 
-    <table>
+    <table class="desktop-table">
         <tr>
             <th>Stunde / Tag</th>
             <?php foreach ($tage as $tag): ?>
@@ -44,7 +44,28 @@ $xml = simplexml_load_file($xmlPfad);
                 <?php foreach ($tage as $tag): 
                     $eintrag = $xml->{strtolower($tag)}->xpath("stunde[@nr=$stunde]")[0];
                 ?>
-                    <td data-label="<?= $tag ?>" onclick="showPopup(event, '<?= htmlspecialchars($eintrag->info) ?>')">
+                    <td onclick="showPopup(event, '<?= htmlspecialchars($eintrag->info) ?>')">
+                        <?= htmlspecialchars($eintrag->fach) ?>
+                    </td>
+                <?php endforeach; ?>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+
+    <table class="mobile-table">
+        <tr>
+            <th>Tag / Stunde</th>
+            <?php foreach ($stunden as $stunde): ?>
+                <th>Stunde <?= $stunde ?></th>
+            <?php endforeach; ?>
+        </tr>
+        <?php foreach ($tage as $tag): ?>
+            <tr>
+                <th><?= $tag ?></th>
+                <?php foreach ($stunden as $stunde): 
+                    $eintrag = $xml->{strtolower($tag)}->xpath("stunde[@nr=$stunde]")[0];
+                ?>
+                    <td onclick="showPopup(event, '<?= htmlspecialchars($eintrag->info) ?>')">
                         <?= htmlspecialchars($eintrag->fach) ?>
                     </td>
                 <?php endforeach; ?>
