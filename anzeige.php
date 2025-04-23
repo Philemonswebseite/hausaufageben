@@ -52,26 +52,20 @@ $xml = simplexml_load_file($xmlPfad);
         <?php endforeach; ?>
     </table>
 
-    <table class="mobile-table">
-        <tr>
-            <th>Tag / Stunde</th>
-            <?php foreach ($stunden as $stunde): ?>
-                <th>Stunde <?= $stunde ?></th>
-            <?php endforeach; ?>
-        </tr>
+    <div class="mobile-table">
         <?php foreach ($tage as $tag): ?>
-            <tr>
-                <th><?= $tag ?></th>
+            <div class="mobile-row">
+                <div class="mobile-header"><?= $tag ?></div>
                 <?php foreach ($stunden as $stunde): 
                     $eintrag = $xml->{strtolower($tag)}->xpath("stunde[@nr=$stunde]")[0];
                 ?>
-                    <td onclick="showPopup(event, '<?= htmlspecialchars($eintrag->info) ?>')">
-                        <?= htmlspecialchars($eintrag->fach) ?>
-                    </td>
+                    <div class="mobile-cell" onclick="showPopup(event, '<?= htmlspecialchars($eintrag->info) ?>')">
+                        <strong>Stunde <?= $stunde ?>:</strong> <?= htmlspecialchars($eintrag->fach) ?>
+                    </div>
                 <?php endforeach; ?>
-            </tr>
+            </div>
         <?php endforeach; ?>
-    </table>
+    </div>
 
     <div class="popup" id="popup">
         <button class="close-btn" onclick="closePopup()">X</button>

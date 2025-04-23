@@ -91,6 +91,52 @@ tr:nth-child(odd) {
 }
 
 
+/* Standardmäßig ist die mobile Ansicht ausgeblendet */
+.mobile-table {
+    display: none;
+}
+
+.desktop-table {
+    display: table;
+}
+
+/* Mobile Ansicht aktivieren bei kleinen Bildschirmen */
+@media (max-width: 768px) {
+    .desktop-table {
+        display: none; /* Desktop-Tabelle ausblenden */
+    }
+
+    .mobile-table {
+        display: block; /* Mobile-Tabelle anzeigen */
+    }
+
+    .mobile-row {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        background-color: #f9f9f9;
+    }
+
+    .mobile-header {
+        font-weight: bold;
+        margin-bottom: 10px;
+        background-color: #f4f4f4;
+        padding: 5px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .mobile-cell {
+        margin-bottom: 5px;
+        padding: 5px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .mobile-cell:last-child {
+        border-bottom: none;
+    }
+}
+
+
 /* Allgemeine Stile für den Link */
 
 .dark-button {
