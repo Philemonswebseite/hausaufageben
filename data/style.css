@@ -345,7 +345,7 @@ tr:nth-child(odd) {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
-    background-color: rgba(78, 78, 78, 1); /* Dunkler Hintergrund */
+    background-color: rgba(78, 78, 78, 114); /* Dunkler Hintergrund */
     color: rgb(202, 202, 202); /* Helle Schriftfarbe */
     padding: 20px;
     border: 1px solid rgb(28, 28, 28); /* Rahmenfarbe wie Tabelle */
