@@ -76,49 +76,6 @@ $xml = simplexml_load_file($xmlPfad);
         <?php foreach ($tage as $tag): ?>
             <div class="mobile-row">
                 <div class="mobile-header"><?= $tag ?></div>
-                <?php foreach ($stunden as $stunde): ?>
-                    <div class="mobile-cell" onclick="showPopup(event, '<?= htmlspecialchars($xml->{strtolower($tag)}->xpath("stunde[@nr=$stunde]")[0]->info) ?>')">
-                        <strong>
-                            <?php 
-                                switch ($stunde) {
-                                    case 1:
-                                        echo "1/2";
-                                        break;
-                                    case 2:
-                                        echo "3/4";
-                                        break;
-                                    case 3:
-                                        echo "5/6";
-                                        break;
-                                    case 4:
-                                        echo "7/8";
-                                        break;
-                                    default:
-                                        echo "Stunde $stunde";
-                                }
-                            ?>:
-                        </strong> 
-                        <?= htmlspecialchars($xml->{strtolower($tag)}->xpath("stunde[@nr=$stunde]")[0]->fach) ?>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        <?php endforeach; ?>
-    </div>
-                <?php foreach ($tage as $tag): 
-                    $eintrag = $xml->{strtolower($tag)}->xpath("stunde[@nr=$stunde]")[0];
-                ?>
-                    <td onclick="showPopup(event, '<?= htmlspecialchars($eintrag->info) ?>')">
-                        <?= htmlspecialchars($eintrag->fach) ?>
-                    </td>
-                <?php endforeach; ?>
-            </tr>
-        <?php endforeach; ?>
-    </table>
-
-    <div class="mobile-table">
-        <?php foreach ($tage as $tag): ?>
-            <div class="mobile-row">
-                <div class="mobile-header"><?= $tag ?></div>
                 <?php foreach ($stunden as $stunde): 
                     $eintrag = $xml->{strtolower($tag)}->xpath("stunde[@nr=$stunde]")[0];
                 ?>
