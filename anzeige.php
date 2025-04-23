@@ -31,6 +31,7 @@ $xml = simplexml_load_file($xmlPfad);
         <a href="?woche=<?= $heute->format("Y") . "-W" . $heute->format("W") ?>">Heute</a>
     </form>
 
+    
     <table class="desktop-table">
         <tr>
             <th>Stunde / Tag</th>
