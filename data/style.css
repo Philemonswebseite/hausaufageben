@@ -112,23 +112,19 @@ tr:nth-child(odd) {
 
     .mobile-row {
         margin-bottom: 20px;
-        border: 1px solid #ddd;
         padding: 10px;
-        background-color: #f9f9f9;
+
     }
 
     .mobile-header {
         font-weight: bold;
         margin-bottom: 10px;
-        background-color: #f4f4f4;
         padding: 5px;
-        border-bottom: 1px solid #ddd;
     }
 
     .mobile-cell {
         margin-bottom: 5px;
         padding: 5px;
-        border-bottom: 1px solid #ddd;
     }
 
     .mobile-cell:last-child {
