@@ -337,6 +337,63 @@ tr:nth-child(odd) {
     font-weight: bold;
 }
 
+/* Popup-Stil */
+.popup {
+    display: none; /* Standardmäßig ausgeblendet */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: rgba(20, 19, 20, 255); /* Dunkler Hintergrund */
+    color: rgb(202, 202, 202); /* Helle Schriftfarbe */
+    padding: 20px;
+    border: 1px solid rgb(28, 28, 28); /* Rahmenfarbe wie Tabelle */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Schatten für Tiefe */
+    width: 90%; /* Breite für mobile Geräte */
+    max-width: 400px; /* Maximale Breite für größere Bildschirme */
+    text-align: center;
+}
+
+/* Popup-Schließen-Button */
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #333; /* Dunkler Hintergrund */
+    color: #fff; /* Helle Schriftfarbe */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.popup .close-btn:hover {
+    background-color: #444; /* Etwas hellerer Hintergrund beim Hover */
+}
+
+/* Popup-Inhalt */
+#popup-content {
+    margin-top: 20px;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+/* Mobile Anpassungen */
+@media (max-width: 768px) {
+    .popup {
+        width: 95%; /* Breitere Darstellung auf kleinen Bildschirmen */
+        max-width: none; /* Keine maximale Breite auf Handys */
+    }
+
+    .popup .close-btn {
+        font-size: 16px; /* Größerer Button für Touch-Geräte */
+    }
+}
+
 
 
 
