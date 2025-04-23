@@ -322,11 +322,9 @@ tr:nth-child(odd) {
     max-width: 400px; /* Maximale Breite für größere Bildschirme */
     text-align: center;
     border-radius: 10px; /* Abgerundete Ecken */
-    margin-left: 5%;
-    margin-right: 50%;
+    box-sizing: border-box; /* Padding und Border in die Gesamtgröße einbeziehen */
 }
 
-/* Popup-Schließen-Button */
 .popup .close-btn {
     position: absolute;
     top: 10px;
@@ -339,7 +337,9 @@ tr:nth-child(odd) {
     border-radius: 4px;
     font-size: 14px;
     transition: background-color 0.3s;
+    box-sizing: border-box; /* Padding und Border in die Gesamtgröße einbeziehen */
 }
+
 
 .popup .close-btn:hover {
     background-color: #444; /* Etwas hellerer Hintergrund beim Hover */
