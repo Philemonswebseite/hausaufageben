@@ -73,27 +73,30 @@ $xml = simplexml_load_file($xmlPfad);
     </div>
 
     <script>
-        document.addEventListener("keydown", function(e) {
-            if (e.key === "Escape") {
-                closePopup();
-            }
-        });
-    </script>
-
-    <script>
+        // Funktion zum Anzeigen des Popups
         function showPopup(evt, text) {
+            evt.stopPropagation(); // Verhindert, dass andere Klick-Events ausgelöst werden
             let popup = document.getElementById("popup");
             let content = document.getElementById("popup-content");
             content.innerText = text || "(Keine Info)";
             popup.style.display = "block";
         }
 
+        // Funktion zum Schließen des Popups
         function closePopup() {
             document.getElementById("popup").style.display = "none";
         }
 
+        // Event-Listener für die Escape-Taste
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "Escape") {
+                closePopup();
+            }
+        });
+
+        // Event-Listener für Klicks außerhalb des Popups
         document.addEventListener("click", function(e) {
-            if (!e.target.closest("td") && !e.target.closest(".popup")) {
+            if (!e.target.closest(".popup") && !e.target.closest("td") && !e.target.closest(".mobile-cell")) {
                 closePopup();
             }
         });
