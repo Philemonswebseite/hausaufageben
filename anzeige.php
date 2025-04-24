@@ -3,14 +3,28 @@
 $heute = new DateTime();
 $woche = isset($_GET['woche']) ? $_GET['woche'] : $heute->format("Y") . "-W" . $heute->format("W");
 $tage = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"];
-$stunden = [1, 2, 3,4];
+$stunden = [1, 2, 3, 4];
 
 $xmlPfad = "plan/$woche.xml";
 if (!file_exists($xmlPfad)) {
-    echo "Keine Daten für diese Woche vorhanden.";
-    exit;
+    // Leere XML-Datei erstellen
+    $xml = new SimpleXMLElement("<woche/>");
+    foreach ($tage as $tag) {
+        $tagEl = $xml->addChild(strtolower($tag));
+        foreach ($stunden as $stunde) {
+            $eintrag = $tagEl->addChild("stunde");
+            $eintrag->addAttribute("nr", $stunde);
+            $eintrag->addChild("fach", "");
+            $eintrag->addChild("info", "");
+        }
+    }
+    $xml->asXML($xmlPfad);
+} else {
+    $xml = simplexml_load_file($xmlPfad);
 }
-$xml = simplexml_load_file($xmlPfad);
+
+// Bearbeitungsmodus prüfen
+$bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +41,10 @@ $xml = simplexml_load_file($xmlPfad);
     <form>
         Woche wählen: 
         <input type="week" name="woche" value="<?= htmlspecialchars($woche) ?>">
+        <label>
+            <input type="checkbox" name="bearbeiten" value="true" <?= $bearbeiten ? 'checked' : '' ?>>
+            Bearbeitungsmodus aktivieren
+        </label>
         <button type="submit">Anzeigen</button>
         <a href="?woche=<?= $heute->format("Y") . "-W" . $heute->format("W") ?>">Heute</a>
     </form>
@@ -64,8 +82,12 @@ $xml = simplexml_load_file($xmlPfad);
                 <?php foreach ($tage as $tag): 
                     $eintrag = $xml->{strtolower($tag)}->xpath("stunde[@nr=$stunde]")[0];
                 ?>
-                    <td onclick="showPopup(event, '<?= htmlspecialchars($eintrag->info) ?>')">
+                    <td>
                         <?= htmlspecialchars($eintrag->fach) ?>
+                        <?php if ($bearbeiten): ?>
+                            <br>
+                            <a href="eingabe.php?woche=<?= $woche ?>&tag=<?= $tag ?>&stunde=<?= $stunde ?>">📝</a>
+                        <?php endif; ?>
                     </td>
                 <?php endforeach; ?>
             </tr>
