@@ -3,28 +3,14 @@
 $heute = new DateTime();
 $woche = isset($_GET['woche']) ? $_GET['woche'] : $heute->format("Y") . "-W" . $heute->format("W");
 $tage = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"];
-$stunden = [1, 2, 3, 4];
+$stunden = [1, 2, 3,4];
 
 $xmlPfad = "plan/$woche.xml";
 if (!file_exists($xmlPfad)) {
-    // Leere XML-Datei erstellen
-    $xml = new SimpleXMLElement("<woche/>");
-    foreach ($tage as $tag) {
-        $tagEl = $xml->addChild(strtolower($tag));
-        foreach ($stunden as $stunde) {
-            $eintrag = $tagEl->addChild("stunde");
-            $eintrag->addAttribute("nr", $stunde);
-            $eintrag->addChild("fach", "");
-            $eintrag->addChild("info", "");
-        }
-    }
-    $xml->asXML($xmlPfad);
-} else {
-    $xml = simplexml_load_file($xmlPfad);
+    echo "Keine Daten für diese Woche vorhanden.";
+    exit;
 }
-
-// Bearbeitungsmodus prüfen
-$bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
+$xml = simplexml_load_file($xmlPfad);
 ?>
 
 <!DOCTYPE html>
@@ -41,13 +27,10 @@ $bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
     <form>
         Woche wählen: 
         <input type="week" name="woche" value="<?= htmlspecialchars($woche) ?>">
-        <label>
-            <input type="checkbox" name="bearbeiten" value="true" <?= $bearbeiten ? 'checked' : '' ?>>
-            Bearbeitungsmodus aktivieren
-        </label>
         <button type="submit">Anzeigen</button>
         <a href="?woche=<?= $heute->format("Y") . "-W" . $heute->format("W") ?>">Heute</a>
     </form>
+
 
     <table class="desktop-table">
         <tr>
@@ -83,15 +66,26 @@ $bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
                 ?>
                     <td onclick="showPopup(event, '<?= htmlspecialchars($eintrag->info) ?>')">
                         <?= htmlspecialchars($eintrag->fach) ?>
-                        <?php if ($bearbeiten): ?>
-                            <br>
-                            <a href="eingabe.php?woche=<?= $woche ?>&tag=<?= $tag ?>&stunde=<?= $stunde ?>">📝</a>
-                        <?php endif; ?>
                     </td>
                 <?php endforeach; ?>
             </tr>
         <?php endforeach; ?>
     </table>
+
+    <div class="mobile-table">
+        <?php foreach ($tage as $tag): ?>
+            <div class="mobile-row">
+                <div class="mobile-header"><?= $tag ?></div>
+                <?php foreach ($stunden as $stunde): 
+                    $eintrag = $xml->{strtolower($tag)}->xpath("stunde[@nr=$stunde]")[0];
+                ?>
+                    <div class="mobile-cell" onclick="showPopup(event, '<?= htmlspecialchars($eintrag->info) ?>')">
+                        <strong>Stunde <?= $stunde ?>:</strong> <?= htmlspecialchars($eintrag->fach) ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
 
     <div class="popup" id="popup">
         <button class="close-btn" onclick="closePopup()">X</button>
