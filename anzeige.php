@@ -40,11 +40,10 @@ $bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
     <h1>Hausaufgaben – Woche <?= htmlspecialchars($woche) ?></h1>
     <form>
         Woche wählen: 
-        <input type="week" name="woche" value="<?= htmlspecialchars($woche) ?>">
-        <button type="submit" class="dark-button">Anzeigen</button>
+        <input type="week" name="woche" value="<?= htmlspecialchars($woche) ?>" onchange="this.form.submit()">
         <br>
         <a href="?woche=<?= $heute->format("Y") . "-W" . $heute->format("W") ?>" class="dark-button">Heute</a>
-        </form>
+    </form>
 <br>
         <?php if ($bearbeiten): ?>
         <a href="?woche=<?= htmlspecialchars($woche) ?>&bearbeiten=false" class="dark-button">zurück</a>
