@@ -24,7 +24,7 @@ if (!file_exists($xmlPfad)) {
 }
 
 // Bearbeitungsmodus prüfen
-$bearbeiten = isset($_POST['bearbeiten']) && $_POST['bearbeiten'] === 'true';
+$bearbeiten = isset($_GET'bearbeiten']) && $_GET'bearbeiten'] === 'true';
 ?>
 
 <!DOCTYPE html>
