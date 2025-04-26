@@ -466,5 +466,4 @@ tr:nth-child(odd) {
     /* Abstand zwischen dem Inhalt und dem Rand der Box */
     box-sizing: border-box;
     /* Sorgt dafür, dass Padding und Border die Gesamtgröße der Box nicht beeinflussen */
-    position: absolute; /* Positioniert die Box relativ zum nächsten positionierten Vorfahren */
-    top: 50%; /* Positioniert die Box 50% vom oberen Rand des Containers */   }
+    position: absolute; /* Positioniert die Box relativ zum nächsten positionierten Vorfahren */   }
