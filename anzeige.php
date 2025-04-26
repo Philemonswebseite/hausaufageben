@@ -24,7 +24,7 @@ if (!file_exists($xmlPfad)) {
 }
 
 // Bearbeitungsmodus prüfen
-$bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
+$bearbeiten = isset($_POST['bearbeiten']) && $_POST['bearbeiten'] === 'true';
 ?>
 
 <!DOCTYPE html>
@@ -41,10 +41,7 @@ $bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
     <form>
         Woche wählen: 
         <input type="week" name="woche" value="<?= htmlspecialchars($woche) ?>">
-        <label>
-            <input type="checkbox" name="bearbeiten" value="true" <?= $bearbeiten ? 'checked' : '' ?>>
-            Bearbeitungsmodus aktivieren
-        </label>
+<a href="?bearbeiten=true">bearb</a>
         <button type="submit">Anzeigen</button>
         <a href="?woche=<?= $heute->format("Y") . "-W" . $heute->format("W") ?>">Heute</a>
     </form>
