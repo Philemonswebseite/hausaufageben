@@ -3,7 +3,7 @@
 $heute = new DateTime();
 $woche = isset($_GET['woche']) ? $_GET['woche'] : $heute->format("Y") . "-W" . $heute->format("W");
 $tage = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"];
-$stunden = [1, 2, 3, 4];
+$stunden = [1/2, 3/4, 5/6, 7/8];
 
 $xmlPfad = "plan/$woche.xml";
 if (!file_exists($xmlPfad)) {
