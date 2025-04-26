@@ -387,16 +387,6 @@ tr:nth-child(odd) {
 
 
 
-
-
-
-
-
-
-
-
-
-
 */
 
 .home-button {
@@ -457,3 +447,24 @@ tr:nth-child(odd) {
     box-sizing: border-box;
     /* Sorgt dafür, dass Padding und Border die Gesamtgröße der Box nicht beeinflussen */
 }
+.bearbeiten {
+    width: 100%;
+    /* Die Box ist 100% der Breite des Containers */
+    height: 100%;
+    /* Die Box ist 100% der Höhe des Containers */
+    background-color: rgba(143, 143, 143, 0.5);
+    /* Graue Box mit 50% Transparenz */
+    border-radius: 15px;
+    /* Abgerundete Ecken */
+    margin-left: 1%;
+    margin-right: 1%;
+    text-align: left;
+    margin-top: 20px;
+    /* Abstand von 10% zum Rand */
+    padding: 0.1%;
+    padding-left: 1%;
+    /* Abstand zwischen dem Inhalt und dem Rand der Box */
+    box-sizing: border-box;
+    /* Sorgt dafür, dass Padding und Border die Gesamtgröße der Box nicht beeinflussen */
+    position: absolute; /* Positioniert die Box relativ zum nächsten positionierten Vorfahren */
+    top: 50%; /* Positioniert die Box 50% vom oberen Rand des Containers */   }
