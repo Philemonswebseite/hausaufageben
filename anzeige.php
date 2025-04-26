@@ -3,7 +3,7 @@
 $heute = new DateTime();
 $woche = isset($_GET['woche']) ? $_GET['woche'] : $heute->format("Y") . "-W" . $heute->format("W");
 $tage = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"];
-$stunden = ["1/2", "3/4", "5/6", "7/8"];
+$stunden = [1, 2, 3, 4];
 
 $xmlPfad = "plan/$woche.xml";
 if (!file_exists($xmlPfad)) {
@@ -102,7 +102,27 @@ $bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
                     $eintrag = $xml->{strtolower($tag)}->xpath("stunde[@nr=$stunde]")[0];
                 ?>
                     <div class="mobile-cell" onclick="showPopup(event, '<?= htmlspecialchars($eintrag->info) ?>')">
-                        <strong>Stunde <?= $stunde ?>:</strong> <?= htmlspecialchars($eintrag->fach) ?>
+                        <strong>
+                            <?php 
+                                switch ($stunde) {
+                                    case 1:
+                                        echo "1/2";
+                                        break;
+                                    case 2:
+                                        echo "3/4";
+                                        break;
+                                    case 3:
+                                        echo "5/6";
+                                        break;
+                                    case 4:
+                                        echo "7/8";
+                                        break;
+                                    default:
+                                        echo "Stunde $stunde";
+                                }
+                            ?>:
+                        </strong> 
+                        <?= htmlspecialchars($eintrag->fach) ?>
                         <?php if ($bearbeiten): ?>
                             <br>
                             <a href="eingabe.php?woche=<?= $woche ?>&tag=<?= $tag ?>&stunde=<?= $stunde ?>">📝</a>
