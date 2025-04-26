@@ -85,7 +85,6 @@ $bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
                     <td>
                         <?= htmlspecialchars($eintrag->fach) ?>
                         <?php if ($bearbeiten): ?>
-                            <br>
                             <a href="eingabe.php?woche=<?= $woche ?>&tag=<?= $tag ?>&stunde=<?= $stunde ?>">📝</a>
                         <?php endif; ?>
                     </td>
@@ -124,7 +123,6 @@ $bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
                         </strong> 
                         <?= htmlspecialchars($eintrag->fach) ?>
                         <?php if ($bearbeiten): ?>
-                            <br>
                             <a href="eingabe.php?woche=<?= $woche ?>&tag=<?= $tag ?>&stunde=<?= $stunde ?>">📝</a>
                         <?php endif; ?>
                     </div>
