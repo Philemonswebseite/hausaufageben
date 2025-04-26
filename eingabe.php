@@ -21,6 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Eintrag bearbeiten</title>
+    <style>
+        <?php include('data/style.css'); ?>
+    </style>
 </head>
 <body>
     <h1><?= "$tag – Stunde $stunde – Woche $woche" ?></h1>
