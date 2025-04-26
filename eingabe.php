@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php include('data/style.css'); ?>
     </style>
 </head>
-<body>
+<body class="bearbeiten">
     <h1><?= "$tag – Stunde $stunde – Woche $woche" ?></h1>
     <form method="post">
         Fach: <input name="fach" value="<?= htmlspecialchars($eintrag->fach) ?>"><br><br>
