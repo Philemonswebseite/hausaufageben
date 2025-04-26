@@ -448,9 +448,9 @@ tr:nth-child(odd) {
     /* Sorgt dafür, dass Padding und Border die Gesamtgröße der Box nicht beeinflussen */
 }
 .bearbeiten {
-    width: 100%;
+    width: 90%;
     /* Die Box ist 100% der Breite des Containers */
-    height: 100%;
+    height: 50%;
     /* Die Box ist 100% der Höhe des Containers */
     background-color: rgba(143, 143, 143, 0.5);
     /* Graue Box mit 50% Transparenz */
