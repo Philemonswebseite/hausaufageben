@@ -45,13 +45,13 @@ $bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
         <br>
         <a href="?woche=<?= $heute->format("Y") . "-W" . $heute->format("W") ?>" class="dark-button">Heute</a>
         </form>
-
+<br>
         <?php if ($bearbeiten): ?>
         <a href="?woche=<?= htmlspecialchars($woche) ?>&bearbeiten=false" class="dark-button">zurück</a>
     <?php else: ?>
         <a href="?woche=<?= htmlspecialchars($woche) ?>&bearbeiten=true" class="dark-button">bearbeiten</a>
     <?php endif; ?>
-
+<br>
     <table class="desktop-table">
         <tr>
             <th>Stunde / Tag</th>
