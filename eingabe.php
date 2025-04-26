@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $eintrag->fach = $_POST['fach'];
     $eintrag->info = $_POST['info'];
     $xml->asXML($xmlPfad);
-    header("Location: index.php?woche=$woche");
+    header("Location: anzeige.php?woche=$woche");
     exit;
 }
 ?>
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         Info:<br>
         <textarea name="info" rows="5" cols="40"><?= htmlspecialchars($eintrag->info) ?></textarea><br><br>
         <button type="submit">Speichern</button>
-        <a href="index.php?woche=<?= $woche ?>">Zurück</a>
+        <a href="anzeige.php?woche=<?= $woche ?>">Zurück</a>
     </form>
 </body>
 </html>
