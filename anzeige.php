@@ -42,9 +42,9 @@ $bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
         Woche wählen: 
         <input type="week" name="woche" value="<?= htmlspecialchars($woche) ?>">
 <?php if ($bearbeiten): ?>
-    <a href="?woche=<?= htmlspecialchars($woche) ?>&bearbeiten=false">lesen</a>
+    <a href="?woche=<?= htmlspecialchars($woche) ?>&bearbeiten=false">zurück</a>
 <?php else: ?>
-    <a href="?woche=<?= htmlspecialchars($woche) ?>&bearbeiten=true">bearb</a>
+    <a href="?woche=<?= htmlspecialchars($woche) ?>&bearbeiten=true">bearbeiten</a>
 <?php endif; ?>
         <button type="submit">Anzeigen</button>
         <a href="?woche=<?= $heute->format("Y") . "-W" . $heute->format("W") ?>">Heute</a>
