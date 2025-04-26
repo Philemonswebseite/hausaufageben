@@ -31,13 +31,13 @@ $bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Stundenplan anzeigen – Woche <?= htmlspecialchars($woche) ?></title>
+    <title>Hausaufgaben</title>
     <style>
        <?php include('data/style.css'); ?>
     </style>
 </head>
 <body>
-    <h1>Stundenplan – Woche <?= htmlspecialchars($woche) ?></h1>
+    <h1>Hausaufgaben – Woche <?= htmlspecialchars($woche) ?></h1>
     <form>
         Woche wählen: 
         <input type="week" name="woche" value="<?= htmlspecialchars($woche) ?>">
