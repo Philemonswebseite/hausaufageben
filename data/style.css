@@ -453,7 +453,7 @@ tr:nth-child(odd) {
     height: 50%;
     /* Die Box ist 100% der Höhe des Containers */
     background-color: rgba(143, 143, 143, 0.5);
-    background: yellowgreen;
+    background: linear-gradient(to bottom, rgba(143, 143, 143, 0.5), rgba(143, 143, 143, 0.5));
     /* Graue Box mit 50% Transparenz */
     border-radius: 15px;
     /* Abgerundete Ecken */
