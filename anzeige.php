@@ -43,7 +43,6 @@ $bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
         <input type="week" name="woche" value="<?= htmlspecialchars($woche) ?>" onchange="this.form.submit()">
         <a href="?woche=<?= $heute->format("Y") . "-W" . $heute->format("W") ?>" class="dark-button">Heute</a>
     </form>
-<br>
         <?php if ($bearbeiten): ?>
         <a href="?woche=<?= htmlspecialchars($woche) ?>&bearbeiten=false" class="dark-button">zurück</a>
     <?php else: ?>
