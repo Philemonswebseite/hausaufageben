@@ -461,8 +461,7 @@ tr:nth-child(odd) {
     text-align: left;
     margin-top: 20px;
     /* Abstand von 10% zum Rand */
-    padding: 0.1%;
-    padding-left: 5%;
+    padding: 5%;
     /* Abstand zwischen dem Inhalt und dem Rand der Box */
     box-sizing: border-box;
     /* Sorgt dafür, dass Padding und Border die Gesamtgröße der Box nicht beeinflussen */
