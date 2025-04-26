@@ -51,7 +51,7 @@ $bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
     <?php else: ?>
         <a href="?woche=<?= htmlspecialchars($woche) ?>&bearbeiten=true" class="dark-button">bearbeiten</a>
     <?php endif; ?>
-<br>
+<br><br>
     <table class="desktop-table">
         <tr>
             <th>Stunde / Tag</th>
