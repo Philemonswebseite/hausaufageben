@@ -9,6 +9,7 @@ body {
     padding: 0;
     background-image: url('data/image.jpeg');
     background-color: #f4f4f4;
+    color: #333; /* Standard Textfarbe */
 }
 
 main {
