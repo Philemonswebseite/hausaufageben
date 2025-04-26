@@ -41,7 +41,11 @@ $bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
     <form>
         Woche wählen: 
         <input type="week" name="woche" value="<?= htmlspecialchars($woche) ?>">
-<a href="?bearbeiten=true">bearb</a>
+<?php if ($bearbeiten): ?>
+    <a href="?woche=<?= htmlspecialchars($woche) ?>&bearbeiten=false">lesen</a>
+<?php else: ?>
+    <a href="?woche=<?= htmlspecialchars($woche) ?>&bearbeiten=true">bearb</a>
+<?php endif; ?>
         <button type="submit">Anzeigen</button>
         <a href="?woche=<?= $heute->format("Y") . "-W" . $heute->format("W") ?>">Heute</a>
     </form>
