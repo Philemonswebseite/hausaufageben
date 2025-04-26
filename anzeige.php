@@ -103,6 +103,10 @@ $bearbeiten = isset($_GET['bearbeiten']) && $_GET['bearbeiten'] === 'true';
                 ?>
                     <div class="mobile-cell" onclick="showPopup(event, '<?= htmlspecialchars($eintrag->info) ?>')">
                         <strong>Stunde <?= $stunde ?>:</strong> <?= htmlspecialchars($eintrag->fach) ?>
+                        <?php if ($bearbeiten): ?>
+                            <br>
+                            <a href="eingabe.php?woche=<?= $woche ?>&tag=<?= $tag ?>&stunde=<?= $stunde ?>">📝</a>
+                        <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
             </div>
