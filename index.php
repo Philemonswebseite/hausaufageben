@@ -28,7 +28,7 @@ if (!file_exists($xmlPfad)) {
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Stundenplan – Woche <?= htmlspecialchars($woche) ?></title>
+    <title>Mein test text für eine PersonStundenplan – Woche <?= htmlspecialchars($woche) ?></title>
    <!-- <link rel="stylesheet" href="data/style.css"> <!-- Import der externen CSS-Datei -->
 </head>
 <body>
